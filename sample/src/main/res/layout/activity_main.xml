@@ -4,6 +4,12 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <View
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@android:color/holo_green_light" />
+
     <TextView
         android:id="@+id/view"
         android:layout_width="wrap_content"
