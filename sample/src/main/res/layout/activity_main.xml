@@ -17,4 +17,19 @@
         android:text="@string/hello_world"
         android:layout_centerInParent="true" />
 
+    <TextView
+        android:id="@+id/viewSecond"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lol"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/view" />
+
+    <View
+        android:id="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@android:color/holo_red_light"
+        android:layout_alignParentBottom="true" />
+
 </RelativeLayout>

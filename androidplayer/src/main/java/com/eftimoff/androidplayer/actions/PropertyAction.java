@@ -1,5 +1,6 @@
-package com.eftimoff.androidplayer;
+package com.eftimoff.androidplayer.actions;
 
+import android.animation.TimeInterpolator;
 import android.view.View;
 
 /**
@@ -9,26 +10,35 @@ import android.view.View;
  */
 public class PropertyAction extends BaseAction {
 
-
-    private int fromTranslationX = 0;
-    private int toTranslationX = 0;
-    private int fromTranslationY = 0;
-    private int toTranslationY = 0;
+    private float fromTranslationX = 0;
+    private float toTranslationX = 0;
+    private float fromTranslationY = 0;
+    private float toTranslationY = 0;
     private float fromScaleY = 1f;
     private float toScaleY = 1f;
     private float fromScaleX = 1f;
     private float toScaleX = 1f;
     private float fromAlpha = 1f;
     private float toAlpha = 1f;
+    private TimeInterpolator interpolator;
 
 
     @Override
-    public void animate(View view) {
+    public void init(View view) {
+        setToTranslationX(view.getTranslationX());
         view.setTranslationX(getFromTranslationX());
+        setToTranslationY(view.getTranslationY());
         view.setTranslationY(getFromTranslationY());
+        setToScaleX(view.getScaleX());
         view.setScaleX(getFromScaleX());
+        setToScaleY(view.getScaleY());
         view.setScaleY(getFromScaleY());
+        setToAlpha(view.getAlpha());
         view.setAlpha(getFromAlpha());
+    }
+
+    @Override
+    public void animate(View view) {
         view.animate().
                 translationX(getToTranslationX()).
                 translationY(getToTranslationY()).
@@ -37,6 +47,7 @@ public class PropertyAction extends BaseAction {
                 alpha(getToAlpha()).
                 setDuration(getDuration()).
                 setStartDelay(getDelay()).
+                setInterpolator(getInterpolator()).
                 start();
     }
 
@@ -54,50 +65,99 @@ public class PropertyAction extends BaseAction {
         this.toScaleX = builder.toScaleX;
         this.fromAlpha = builder.fromAlpha;
         this.toAlpha = builder.toAlpha;
+        this.interpolator = builder.interpolator;
     }
 
     public static Builder newPropertyAction(final View view) {
         return new Builder(view);
     }
 
-    public int getFromTranslationX() {
+    public float getFromTranslationX() {
         return fromTranslationX;
     }
 
-    public int getToTranslationX() {
+    public void setFromTranslationX(float fromTranslationX) {
+        this.fromTranslationX = fromTranslationX;
+    }
+
+    public float getToTranslationX() {
         return toTranslationX;
     }
 
-    public int getFromTranslationY() {
+    public void setToTranslationX(float toTranslationX) {
+        this.toTranslationX = toTranslationX;
+    }
+
+    public float getFromTranslationY() {
         return fromTranslationY;
     }
 
-    public int getToTranslationY() {
+    public void setFromTranslationY(float fromTranslationY) {
+        this.fromTranslationY = fromTranslationY;
+    }
+
+    public float getToTranslationY() {
         return toTranslationY;
+    }
+
+    public void setToTranslationY(float toTranslationY) {
+        this.toTranslationY = toTranslationY;
     }
 
     public float getFromScaleY() {
         return fromScaleY;
     }
 
+    public void setFromScaleY(float fromScaleY) {
+        this.fromScaleY = fromScaleY;
+    }
+
     public float getToScaleY() {
         return toScaleY;
+    }
+
+    public void setToScaleY(float toScaleY) {
+        this.toScaleY = toScaleY;
     }
 
     public float getFromScaleX() {
         return fromScaleX;
     }
 
+    public void setFromScaleX(float fromScaleX) {
+        this.fromScaleX = fromScaleX;
+    }
+
     public float getToScaleX() {
         return toScaleX;
+    }
+
+    public void setToScaleX(float toScaleX) {
+        this.toScaleX = toScaleX;
     }
 
     public float getFromAlpha() {
         return fromAlpha;
     }
 
+    public void setFromAlpha(float fromAlpha) {
+        this.fromAlpha = fromAlpha;
+    }
+
     public float getToAlpha() {
         return toAlpha;
+    }
+
+    public void setToAlpha(float toAlpha) {
+        this.toAlpha = toAlpha;
+    }
+
+    public TimeInterpolator getInterpolator() {
+        return interpolator;
+    }
+
+    public void setInterpolator(TimeInterpolator interpolator) {
+        this.interpolator = interpolator;
     }
 
     public static final class Builder {
@@ -114,6 +174,7 @@ public class PropertyAction extends BaseAction {
         private float toScaleX = 1f;
         private float fromAlpha = 1f;
         private float toAlpha = 1f;
+        private TimeInterpolator interpolator;
 
         private Builder(final View view) {
             this.view = view;
@@ -180,6 +241,11 @@ public class PropertyAction extends BaseAction {
 
         public Builder toAlpha(float toAlpha) {
             this.toAlpha = toAlpha;
+            return this;
+        }
+
+        public Builder interpolator(TimeInterpolator interpolator) {
+            this.interpolator = interpolator;
             return this;
         }
     }

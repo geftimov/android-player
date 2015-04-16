@@ -1,8 +1,10 @@
-package com.eftimoff.androidplayer;
+package com.eftimoff.androidplayer.actions;
 
 import android.view.View;
 
 /**
+ * Base Action with some mandatory fields.
+ * <p/>
  * Created by georgi.eftimov on 4/15/2015.
  */
 public abstract class BaseAction implements Action {
