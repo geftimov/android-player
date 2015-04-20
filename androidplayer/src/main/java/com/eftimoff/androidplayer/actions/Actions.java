@@ -2,6 +2,8 @@ package com.eftimoff.androidplayer.actions;
 
 import android.view.View;
 
+import com.eftimoff.androidplayer.actions.property.PropertyAction;
+
 /**
  * Collection of common actions.
  * <p/>

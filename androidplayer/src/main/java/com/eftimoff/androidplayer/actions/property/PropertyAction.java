@@ -1,7 +1,10 @@
-package com.eftimoff.androidplayer.actions;
+package com.eftimoff.androidplayer.actions.property;
 
 import android.animation.TimeInterpolator;
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
+
+import com.eftimoff.androidplayer.actions.BaseAction;
 
 /**
  * Action that animates the properties of the view.
@@ -22,7 +25,6 @@ public class PropertyAction extends BaseAction {
     private float toAlpha = 1f;
     private float fromRotation;
     private float toRotation;
-    private TimeInterpolator interpolator;
 
 
     @Override
@@ -61,6 +63,7 @@ public class PropertyAction extends BaseAction {
         setDuration(builder.duration);
         setDelay(builder.delay);
         setAnimateAlone(builder.animateAlone);
+        setInterpolator(builder.interpolator);
         this.fromTranslationX = builder.fromTranslationX;
         this.toTranslationX = builder.toTranslationX;
         this.fromTranslationY = builder.fromTranslationY;
@@ -72,7 +75,6 @@ public class PropertyAction extends BaseAction {
         this.fromAlpha = builder.fromAlpha;
         this.toAlpha = builder.toAlpha;
         this.fromRotation = builder.rotation;
-        this.interpolator = builder.interpolator;
     }
 
     public static Builder newPropertyAction(final View view) {
@@ -142,15 +144,6 @@ public class PropertyAction extends BaseAction {
         this.toAlpha = toAlpha;
     }
 
-    public TimeInterpolator getInterpolator() {
-        return interpolator;
-    }
-
-    public void setInterpolator(TimeInterpolator interpolator) {
-        this.interpolator = interpolator;
-    }
-
-
     private void setToRotation(float toRotation) {
         this.toRotation = toRotation;
     }
@@ -168,6 +161,7 @@ public class PropertyAction extends BaseAction {
         private boolean animateAlone;
         private int duration = 300;
         private int delay = 0;
+        private TimeInterpolator interpolator = new AccelerateDecelerateInterpolator();
         private int fromTranslationX = 0;
         private int toTranslationX = 0;
         private int fromTranslationY = 0;
@@ -179,7 +173,6 @@ public class PropertyAction extends BaseAction {
         private float fromAlpha = 1f;
         private float toAlpha = 1f;
         private float rotation;
-        private TimeInterpolator interpolator;
 
         private Builder(final View view) {
             this.view = view;
