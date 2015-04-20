@@ -20,21 +20,25 @@ public class PropertyAction extends BaseAction {
     private float toScaleX = 1f;
     private float fromAlpha = 1f;
     private float toAlpha = 1f;
+    private float fromRotation;
+    private float toRotation;
     private TimeInterpolator interpolator;
 
 
     @Override
     public void init(View view) {
         setToTranslationX(view.getTranslationX());
-        view.setTranslationX(getFromTranslationX());
+        view.setTranslationX(getTranslationX());
         setToTranslationY(view.getTranslationY());
-        view.setTranslationY(getFromTranslationY());
+        view.setTranslationY(getTranslationY());
         setToScaleX(view.getScaleX());
-        view.setScaleX(getFromScaleX());
+        view.setScaleX(getScaleX());
         setToScaleY(view.getScaleY());
-        view.setScaleY(getFromScaleY());
+        view.setScaleY(getScaleY());
         setToAlpha(view.getAlpha());
-        view.setAlpha(getFromAlpha());
+        view.setAlpha(getAlpha());
+        setToRotation(view.getRotation());
+        view.setRotation(getRotation());
     }
 
     @Override
@@ -43,8 +47,9 @@ public class PropertyAction extends BaseAction {
                 translationX(toTranslationX).
                 translationY(toTranslationY).
                 scaleY(toScaleY).
-                scaleX(toScaleY).
+                scaleX(toScaleX).
                 alpha(toAlpha).
+                rotation(toRotation).
                 setDuration(getDuration()).
                 setStartDelay(getDelay()).
                 setInterpolator(getInterpolator()).
@@ -66,6 +71,7 @@ public class PropertyAction extends BaseAction {
         this.toScaleX = builder.toScaleX;
         this.fromAlpha = builder.fromAlpha;
         this.toAlpha = builder.toAlpha;
+        this.fromRotation = builder.rotation;
         this.interpolator = builder.interpolator;
     }
 
@@ -73,7 +79,7 @@ public class PropertyAction extends BaseAction {
         return new Builder(view);
     }
 
-    public float getFromTranslationX() {
+    public float getTranslationX() {
         return fromTranslationX;
     }
 
@@ -85,7 +91,7 @@ public class PropertyAction extends BaseAction {
         this.toTranslationX = toTranslationX;
     }
 
-    public float getFromTranslationY() {
+    public float getTranslationY() {
         return fromTranslationY;
     }
 
@@ -98,7 +104,7 @@ public class PropertyAction extends BaseAction {
         this.toTranslationY = toTranslationY;
     }
 
-    public float getFromScaleY() {
+    public float getScaleY() {
         return fromScaleY;
     }
 
@@ -110,7 +116,7 @@ public class PropertyAction extends BaseAction {
         this.toScaleY = toScaleY;
     }
 
-    public float getFromScaleX() {
+    public float getScaleX() {
         return fromScaleX;
     }
 
@@ -123,7 +129,7 @@ public class PropertyAction extends BaseAction {
         this.toScaleX = toScaleX;
     }
 
-    public float getFromAlpha() {
+    public float getAlpha() {
         return fromAlpha;
     }
 
@@ -144,6 +150,19 @@ public class PropertyAction extends BaseAction {
         this.interpolator = interpolator;
     }
 
+
+    private void setToRotation(float toRotation) {
+        this.toRotation = toRotation;
+    }
+
+    public float getRotation() {
+        return fromRotation;
+    }
+
+    private void setFromRotation(float fromRotation) {
+        this.fromRotation = fromRotation;
+    }
+
     public static final class Builder {
         private View view;
         private boolean animateAlone;
@@ -159,6 +178,7 @@ public class PropertyAction extends BaseAction {
         private float toScaleX = 1f;
         private float fromAlpha = 1f;
         private float toAlpha = 1f;
+        private float rotation;
         private TimeInterpolator interpolator;
 
         private Builder(final View view) {
@@ -195,7 +215,6 @@ public class PropertyAction extends BaseAction {
             return this;
         }
 
-
         public Builder scaleX(float fromScaleX) {
             this.fromScaleX = fromScaleX;
             return this;
@@ -213,6 +232,11 @@ public class PropertyAction extends BaseAction {
 
         public Builder animateAlone(final boolean shouldWait) {
             this.animateAlone = shouldWait;
+            return this;
+        }
+
+        public Builder rotation(final float rotation) {
+            this.rotation = rotation;
             return this;
         }
     }

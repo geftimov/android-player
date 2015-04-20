@@ -27,9 +27,9 @@ public class MainActivity extends ActionBarActivity {
         final View bottom = findViewById(R.id.bottom);
 
         final PropertyAction propertyAction = PropertyAction.newPropertyAction(view).translationX(-200).duration(750).interpolator(new AccelerateDecelerateInterpolator()).alpha(0.4f).build();
-        final PropertyAction headerPropertyAction = PropertyAction.newPropertyAction(headerView).animateAlone(true).interpolator(new DecelerateInterpolator()).translationY(-200).duration(3750).delay(1233).alpha(0.4f).build();
+        final PropertyAction headerPropertyAction = PropertyAction.newPropertyAction(headerView).interpolator(new DecelerateInterpolator()).translationY(-200).duration(3750).delay(1233).alpha(0.4f).build();
         final PropertyAction viewSecondAction = PropertyAction.newPropertyAction(viewSecond).translationY(200).duration(750).alpha(0f).build();
-        final PropertyAction bottomPropertyAction = PropertyAction.newPropertyAction(bottom).scaleX(0.1f).scaleY(0.1f).translationX(-200).duration(2750).build();
+        final PropertyAction bottomPropertyAction = PropertyAction.newPropertyAction(bottom).rotation(-180).scaleX(0.1f).scaleY(0.1f).translationX(-200).duration(750).build();
 
 
         Player.with(view).
@@ -47,13 +47,13 @@ public class MainActivity extends ActionBarActivity {
     private PlayerStartListener playerStartListener = new PlayerStartListener() {
         @Override
         public void onStart() {
-            Toast.makeText(getApplicationContext(), "Start", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(), "Start", Toast.LENGTH_SHORT).show();
         }
     };
     private PlayerEndListener playerEndListener = new PlayerEndListener() {
         @Override
         public void onEnd() {
-            Toast.makeText(getApplicationContext(), "End", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(), "End", Toast.LENGTH_SHORT).show();
         }
     };
 }
