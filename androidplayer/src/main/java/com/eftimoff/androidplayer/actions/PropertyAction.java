@@ -40,11 +40,11 @@ public class PropertyAction extends BaseAction {
     @Override
     public void animate(View view) {
         view.animate().
-                translationX(getToTranslationX()).
-                translationY(getToTranslationY()).
-                scaleY(getToScaleY()).
-                scaleX(getToScaleX()).
-                alpha(getToAlpha()).
+                translationX(toTranslationX).
+                translationY(toTranslationY).
+                scaleY(toScaleY).
+                scaleX(toScaleY).
+                alpha(toAlpha).
                 setDuration(getDuration()).
                 setStartDelay(getDelay()).
                 setInterpolator(getInterpolator()).
@@ -55,6 +55,7 @@ public class PropertyAction extends BaseAction {
         super(builder.view);
         setDuration(builder.duration);
         setDelay(builder.delay);
+        setAnimateAlone(builder.animateAlone);
         this.fromTranslationX = builder.fromTranslationX;
         this.toTranslationX = builder.toTranslationX;
         this.fromTranslationY = builder.fromTranslationY;
@@ -76,15 +77,11 @@ public class PropertyAction extends BaseAction {
         return fromTranslationX;
     }
 
-    public void setFromTranslationX(float fromTranslationX) {
+    private void setFromTranslationX(float fromTranslationX) {
         this.fromTranslationX = fromTranslationX;
     }
 
-    public float getToTranslationX() {
-        return toTranslationX;
-    }
-
-    public void setToTranslationX(float toTranslationX) {
+    private void setToTranslationX(float toTranslationX) {
         this.toTranslationX = toTranslationX;
     }
 
@@ -92,15 +89,12 @@ public class PropertyAction extends BaseAction {
         return fromTranslationY;
     }
 
-    public void setFromTranslationY(float fromTranslationY) {
+    private void setFromTranslationY(float fromTranslationY) {
         this.fromTranslationY = fromTranslationY;
     }
 
-    public float getToTranslationY() {
-        return toTranslationY;
-    }
 
-    public void setToTranslationY(float toTranslationY) {
+    private void setToTranslationY(float toTranslationY) {
         this.toTranslationY = toTranslationY;
     }
 
@@ -108,15 +102,11 @@ public class PropertyAction extends BaseAction {
         return fromScaleY;
     }
 
-    public void setFromScaleY(float fromScaleY) {
+    private void setFromScaleY(float fromScaleY) {
         this.fromScaleY = fromScaleY;
     }
 
-    public float getToScaleY() {
-        return toScaleY;
-    }
-
-    public void setToScaleY(float toScaleY) {
+    private void setToScaleY(float toScaleY) {
         this.toScaleY = toScaleY;
     }
 
@@ -124,15 +114,12 @@ public class PropertyAction extends BaseAction {
         return fromScaleX;
     }
 
-    public void setFromScaleX(float fromScaleX) {
+    private void setFromScaleX(float fromScaleX) {
         this.fromScaleX = fromScaleX;
     }
 
-    public float getToScaleX() {
-        return toScaleX;
-    }
 
-    public void setToScaleX(float toScaleX) {
+    private void setToScaleX(float toScaleX) {
         this.toScaleX = toScaleX;
     }
 
@@ -140,15 +127,12 @@ public class PropertyAction extends BaseAction {
         return fromAlpha;
     }
 
-    public void setFromAlpha(float fromAlpha) {
+    private void setFromAlpha(float fromAlpha) {
         this.fromAlpha = fromAlpha;
     }
 
-    public float getToAlpha() {
-        return toAlpha;
-    }
 
-    public void setToAlpha(float toAlpha) {
+    private void setToAlpha(float toAlpha) {
         this.toAlpha = toAlpha;
     }
 
@@ -162,6 +146,7 @@ public class PropertyAction extends BaseAction {
 
     public static final class Builder {
         private View view;
+        private boolean animateAlone;
         private int duration = 300;
         private int delay = 0;
         private int fromTranslationX = 0;
@@ -194,58 +179,40 @@ public class PropertyAction extends BaseAction {
             return this;
         }
 
-        public Builder fromTranslationX(int fromTranslationX) {
+        public Builder translationX(int fromTranslationX) {
             this.fromTranslationX = fromTranslationX;
             return this;
         }
 
-        public Builder toTranslationX(int toTranslationX) {
-            this.toTranslationX = toTranslationX;
-            return this;
-        }
-
-        public Builder fromTranslationY(int fromTranslationY) {
+        public Builder translationY(int fromTranslationY) {
             this.fromTranslationY = fromTranslationY;
             return this;
         }
 
-        public Builder toTranslationY(int toTranslationY) {
-            this.toTranslationY = toTranslationY;
-            return this;
-        }
 
-        public Builder fromScaleY(float fromScaleY) {
+        public Builder scaleY(float fromScaleY) {
             this.fromScaleY = fromScaleY;
             return this;
         }
 
-        public Builder toScaleY(float toScaleY) {
-            this.toScaleY = toScaleY;
-            return this;
-        }
 
-        public Builder fromScaleX(float fromScaleX) {
+        public Builder scaleX(float fromScaleX) {
             this.fromScaleX = fromScaleX;
             return this;
         }
 
-        public Builder toScaleX(float toScaleX) {
-            this.toScaleX = toScaleX;
-            return this;
-        }
-
-        public Builder fromAlpha(float fromAlpha) {
+        public Builder alpha(float fromAlpha) {
             this.fromAlpha = fromAlpha;
-            return this;
-        }
-
-        public Builder toAlpha(float toAlpha) {
-            this.toAlpha = toAlpha;
             return this;
         }
 
         public Builder interpolator(TimeInterpolator interpolator) {
             this.interpolator = interpolator;
+            return this;
+        }
+
+        public Builder animateAlone(final boolean shouldWait) {
+            this.animateAlone = shouldWait;
             return this;
         }
     }

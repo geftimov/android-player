@@ -98,7 +98,7 @@ public class Player {
     private int getLongestDuration(final List<BaseAction> actions) {
         int maxDuration = 0;
         for (final BaseAction action : actions) {
-            if (action.getDuration() > maxDuration) {
+            if (!action.isAnimateAlone() && action.getDuration() > maxDuration) {
                 maxDuration = action.getDuration() + action.getDelay();
             }
         }

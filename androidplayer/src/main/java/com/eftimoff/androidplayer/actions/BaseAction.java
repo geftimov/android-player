@@ -12,6 +12,7 @@ public abstract class BaseAction implements Action {
     private View view;
     private int duration = 300;
     private int delay = 0;
+    private boolean animateAlone;
 
     public BaseAction(final View view) {
         this.view = view;
@@ -36,4 +37,14 @@ public abstract class BaseAction implements Action {
     public void setDelay(int delay) {
         this.delay = delay;
     }
+
+    public boolean isAnimateAlone() {
+        return animateAlone;
+    }
+
+    public void setAnimateAlone(boolean animateAlone) {
+        this.animateAlone = animateAlone;
+    }
+
+
 }

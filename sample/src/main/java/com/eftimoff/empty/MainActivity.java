@@ -26,10 +26,10 @@ public class MainActivity extends ActionBarActivity {
         final View viewSecond = findViewById(R.id.viewSecond);
         final View bottom = findViewById(R.id.bottom);
 
-        final PropertyAction propertyAction = PropertyAction.newPropertyAction(view).fromTranslationX(-200).duration(750).interpolator(new AccelerateDecelerateInterpolator()).fromAlpha(0.4f).build();
-        final PropertyAction headerPropertyAction = PropertyAction.newPropertyAction(headerView).interpolator(new DecelerateInterpolator()).fromTranslationY(-200).duration(3750).delay(1233).fromAlpha(0.4f).build();
-        final PropertyAction viewSecondAction = PropertyAction.newPropertyAction(viewSecond).fromTranslationY(200).duration(750).fromAlpha(0f).build();
-        final PropertyAction bottomPropertyAction = PropertyAction.newPropertyAction(bottom).fromScaleX(0.1f).fromScaleY(0.1f).fromTranslationX(-200).duration(2750).build();
+        final PropertyAction propertyAction = PropertyAction.newPropertyAction(view).translationX(-200).duration(750).interpolator(new AccelerateDecelerateInterpolator()).alpha(0.4f).build();
+        final PropertyAction headerPropertyAction = PropertyAction.newPropertyAction(headerView).animateAlone(true).interpolator(new DecelerateInterpolator()).translationY(-200).duration(3750).delay(1233).alpha(0.4f).build();
+        final PropertyAction viewSecondAction = PropertyAction.newPropertyAction(viewSecond).translationY(200).duration(750).alpha(0f).build();
+        final PropertyAction bottomPropertyAction = PropertyAction.newPropertyAction(bottom).scaleX(0.1f).scaleY(0.1f).translationX(-200).duration(2750).build();
 
 
         Player.with(view).
