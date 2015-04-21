@@ -43,7 +43,11 @@ public class CurveAction extends BaseAction {
         this.controlPoint2Y = builder.controlPoint2Y;
     }
 
-    public static Builder newCurveAction(final View view) {
+    public static Builder newControlPointsCurveAction(final View view) {
+        return new Builder(view);
+    }
+
+    public static Builder newLinearCurveAction(final View view) {
         return new Builder(view);
     }
 
@@ -71,7 +75,7 @@ public class CurveAction extends BaseAction {
      * We need this setter to translate between the information the animator
      * produces (a new "PathPoint" describing the current animated location)
      * and the information that the button requires (an xy location). The
-     * setter will be called by the ObjectAnimator given the 'fabLoc'
+     * setter will be called by the ObjectAnimator given the 'PathPointLocation'
      * property string.
      */
     public void setPathPointLocation(final PathPoint newLoc) {

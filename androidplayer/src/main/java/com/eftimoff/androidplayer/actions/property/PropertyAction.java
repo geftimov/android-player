@@ -162,10 +162,10 @@ public class PropertyAction extends BaseAction {
         private int duration = 300;
         private int delay = 0;
         private TimeInterpolator interpolator = new AccelerateDecelerateInterpolator();
-        private int fromTranslationX = 0;
-        private int toTranslationX = 0;
-        private int fromTranslationY = 0;
-        private int toTranslationY = 0;
+        private float fromTranslationX = 0;
+        private float toTranslationX = 0;
+        private float fromTranslationY = 0;
+        private float toTranslationY = 0;
         private float fromScaleY = 1f;
         private float toScaleY = 1f;
         private float fromScaleX = 1f;
@@ -192,12 +192,12 @@ public class PropertyAction extends BaseAction {
             return this;
         }
 
-        public Builder translationX(int fromTranslationX) {
+        public Builder translationX(float fromTranslationX) {
             this.fromTranslationX = fromTranslationX;
             return this;
         }
 
-        public Builder translationY(int fromTranslationY) {
+        public Builder translationY(float fromTranslationY) {
             this.fromTranslationY = fromTranslationY;
             return this;
         }
