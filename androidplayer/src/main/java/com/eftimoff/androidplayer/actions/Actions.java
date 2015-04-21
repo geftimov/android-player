@@ -31,22 +31,41 @@ public class Actions {
         return PropertyAction.newPropertyAction(view).alpha(alpha).build();
     }
 
-    public static CurveAction curve(final View view, final float x, final float y, final int degree) {
+    public static CurveAction curve(final View view, final float x, final float y) {
         final float base = abstand(view.getX(), view.getY(), x, y);
-        final float heightOfTriangle = 50;
+        final float heightOfTriangle = getHeightOfTriangle(base, 165);
+        float x1 = -x;
+        float y1 = y + Math.abs(x);
+        float x2 = Math.abs(y);
+        float y2 = Math.abs(x);
 
-        final float xCoordinate = getXCoordinate(x / 2, heightOfTriangle, 90 - degree / 2);
-        final float yCoordinate = getYCoordinate(y / 2, heightOfTriangle, 90 - degree / 2);
-        return CurveAction.newControlPointsCurveAction(view).translationX(x).translationY(y).controlPoint1X(getXCoordinate(x, heightOfTriangle, degree)).controlPoint1Y(getYCoordinate(y, heightOfTriangle, degree)).controlPoint2X(getXCoordinate(view.getX(), heightOfTriangle, degree)).controlPoint2Y(getYCoordinate(view.getY(), heightOfTriangle, degree)).build();
+        final float x3 = getX(heightOfTriangle / base, x, x1);
+        final float y3 = getY(heightOfTriangle / base, y, y1);
+        final float x4 = getX(heightOfTriangle / base, view.getX(), x2);
+        final float y4 = getY(heightOfTriangle / base, view.getY(), y2);
+        return CurveAction.newControlPointsCurveAction(view).translationX(x).translationY(y).controlPoint1X(x3).controlPoint1Y(y3).controlPoint2X(x4).controlPoint2Y(y4).build();
+    }
+
+    private static float getX(float alpha, float x1, float x2) {
+        return (1 - alpha) * x1 + alpha * x2;
+    }
+
+    private static float getY(float alpha, float y1, float y2) {
+        return (1 - alpha) * y1 + alpha * y2;
     }
 
     private static float getHeightOfTriangle(final float base, final float baseDegree) {
-        return (float) ((base / 2) * Math.tan(Math.toRadians(baseDegree)));
+        return (float) (base / (2 * Math.tan(Math.toRadians(baseDegree / 2))));
     }
 
-    private static float getBaseOfRightTriangle(final float side) {
-        return (float) Math.sqrt(2) * side;
+    private static float getAngle(final float x, final float y) {
+        float angle = (float) Math.toDegrees(Math.atan2(y, x));
+        if (angle < 0) {
+            angle += 360;
+        }
+        return angle;
     }
+
 
     private static float getXCoordinate(final float x, final float distance, final float angle) {
         return (float) (x + distance * (Math.cos(Math.toRadians(angle))));

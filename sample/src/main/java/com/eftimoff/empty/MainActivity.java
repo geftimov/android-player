@@ -31,8 +31,7 @@ public class MainActivity extends ActionBarActivity {
         final PropertyAction bottomPropertyAction = PropertyAction.newPropertyAction(bottom).rotation(-180).scaleX(0.1f).scaleY(0.1f).translationX(-200).duration(750).build();
         final CurveAction curveAction = CurveAction.newControlPointsCurveAction(viewSecond).translationX(100).translationY(0).controlPoint1X(100).controlPoint1Y(55.5f).controlPoint2X(0).controlPoint2Y(55.5f).duration(2500).build();
 
-        //The control points between (1,0) and (0,1) are at (1,k) and (k,1) with k=43(2??1).
-        final CurveAction curve = Actions.curve(viewSecond, -50, 100, 90);
+        final CurveAction curve = Actions.curve(viewSecond, -100, 100);
         curve.setDuration(2500);
         Player.with(view).
                 setPlayerStartListener(playerStartListener).
