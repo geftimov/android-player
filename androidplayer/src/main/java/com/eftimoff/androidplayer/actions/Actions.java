@@ -34,6 +34,7 @@ public class Actions {
     public static CurveAction curve(final View view, final float x, final float y, final int degree) {
         final float base = abstand(view.getX(), view.getY(), x, y);
         final float heightOfTriangle = 50;
+
         final float xCoordinate = getXCoordinate(x / 2, heightOfTriangle, 90 - degree / 2);
         final float yCoordinate = getYCoordinate(y / 2, heightOfTriangle, 90 - degree / 2);
         return CurveAction.newControlPointsCurveAction(view).translationX(x).translationY(y).controlPoint1X(getXCoordinate(x, heightOfTriangle, degree)).controlPoint1Y(getYCoordinate(y, heightOfTriangle, degree)).controlPoint2X(getXCoordinate(view.getX(), heightOfTriangle, degree)).controlPoint2Y(getYCoordinate(view.getY(), heightOfTriangle, degree)).build();
