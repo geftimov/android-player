@@ -1,0 +1,33 @@
+<resources tools:ignore="all" xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.MyTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Base application theme.
+             Defining this lets values-v21/styles.xml reuse it with changes. -->
+        <!-- colorPrimary is used, for instance, for the default ActionBar
+         (but not Toolbar) background.
+          We specify the same color for the toolbar background in
+          toolbar.xml.. -->
+        <!---->
+
+        <!--&lt;!&ndash; colorPrimaryDark is used for the status bar (with the-->
+        <!--battery, clock, etc). &ndash;&gt;-->
+        <item name="colorPrimaryDark">@color/material_deep_teal_200</item>
+
+        <!-- colorAccent is used as the default value for
+             colorControlActivated which is used to tint widgets. -->
+        <item name="colorAccent">@color/material_deep_teal_200</item>
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+        <item name="android:actionMenuTextColor">@android:color/white</item>
+        <item name="android:background">@null</item>
+        <item name="background">@null</item>
+    </style>
+
+    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@android:color/white</item>
+    </style>
+
+    <style name="MyTheme.Overlay" parent="Theme.MyTheme">
+        <item name="colorPrimary">@android:color/transparent</item>
+    </style>
+</resources>

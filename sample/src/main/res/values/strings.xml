@@ -3,5 +3,8 @@
 
     <string name="app_name">Empty</string>
     <string name="hello_world">Hello world!</string>
+    <string name="menu_action_edit">Edit</string>
+    <string name="menu_action_subitem1">Sub Item 1</string>
+    <string name="menu_action_subitem2">Sub Item 2</string>
 
 </resources>
