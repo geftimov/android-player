@@ -1,7 +1,14 @@
 package com.eftimoff.empty;
 
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
@@ -13,6 +20,9 @@ import com.eftimoff.androidplayer.Player;
 import com.eftimoff.androidplayer.listeners.PlayerEndListener;
 import com.eftimoff.androidplayer.listeners.PlayerStartListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class MainActivity extends ActionBarActivity {
 
@@ -20,7 +30,7 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final View view = findViewById(R.id.view);
+/*        final View view = findViewById(R.id.view);
         final View headerView = findViewById(R.id.header);
         final View viewSecond = findViewById(R.id.viewSecond);
         final View bottom = findViewById(R.id.bottom);
@@ -42,7 +52,16 @@ public class MainActivity extends ActionBarActivity {
                 animate(curve).
                 then().
                 animate(bottomPropertyAction).
-                play();
+                play();*/
+
+        initDrawerLayout();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.player_menu, menu);
+        return true;
     }
 
     private PlayerStartListener playerStartListener = new PlayerStartListener() {
@@ -58,5 +77,18 @@ public class MainActivity extends ActionBarActivity {
         }
     };
 
-
+    private void initDrawerLayout() {
+        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        final ActionBar supportActionBar = getSupportActionBar();
+        final DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.activityMainDrawerLayout);
+        final ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.abc_toolbar_collapse_description,
+                R.string.abc_toolbar_collapse_description);
+        drawerToggle.setDrawerIndicatorEnabled(true);
+        supportActionBar.setDisplayHomeAsUpEnabled(true);
+        supportActionBar.setHomeButtonEnabled(true);
+        supportActionBar.setDisplayShowTitleEnabled(false);
+        drawerToggle.syncState();
+        drawerLayout.setDrawerListener(drawerToggle);
+    }
 }
