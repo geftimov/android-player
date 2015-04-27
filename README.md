@@ -1,5 +1,39 @@
-## android-empty-project
-This is empty project to start open source library.
+## android-player
+Animations when entering actvity or fragment made easy.
+
+#### You have created beautiful UI , but it is boring
+
+![svg](https://github.com/geftimov/android-pathview/blob/master/art/settings.gif) 
+
+#### Run the player and you will can create beautiful transitions for your views.
+
+```java
+    final Path path = new Path();
+        path.moveTo(0.0f, 0.0f);
+        path.lineTo(length / 4f, 0.0f);
+        path.lineTo(length, height / 2.0f);
+        path.lineTo(length / 4f, height);
+        path.lineTo(0.0f, height);
+	    path.lineTo(length * 3f / 4f, height / 2f);
+	    path.lineTo(0.0f, 0.0f);
+	    path.close();
+```
+
+#### Result
+
+![svg](https://github.com/geftimov/android-pathview/blob/master/art/settings.gif)
+
+#### Contributors
+
+[Martin Vitanov](https://github.com/martinVitanov "Martin Vitanov") <br />
+[Georgi Eftimov](https://github.com/geftimov "Georgi Eftimov")
+
+##### Download
+
+	dependencies {
+		compile 'com.eftimoff:android-player:1.0.0@aar'
+	}
+
 
 ## Licence
 
