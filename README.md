@@ -3,25 +3,41 @@ Animations when entering actvity or fragment made easy.
 
 #### You have created beautiful UI , but it is boring
 
-![svg](https://github.com/geftimov/android-pathview/blob/master/art/settings.gif) 
+![svg](https://github.com/geftimov/android-player/blob/master/art/playerPhoto.png) 
 
 #### Run the player and you will can create beautiful transitions for your views.
 
 ```java
-    final Path path = new Path();
-        path.moveTo(0.0f, 0.0f);
-        path.lineTo(length / 4f, 0.0f);
-        path.lineTo(length, height / 2.0f);
-        path.lineTo(length / 4f, height);
-        path.lineTo(0.0f, height);
-	    path.lineTo(length * 3f / 4f, height / 2f);
-	    path.lineTo(0.0f, 0.0f);
-	    path.close();
+	final PropertyAction fabAction = PropertyAction.newPropertyAction(activityMainPinkFab).
+			scaleX(0).
+			scaleY(0).
+			duration(750).
+			interpolator(new AccelerateDecelerateInterpolator()).
+			build();
+        final PropertyAction headerAction = PropertyAction.newPropertyAction(activityMainheaderLayout).
+        		interpolator(new DecelerateInterpolator()).
+        		translationY(-200).
+        		duration(550).
+        		alpha(0.4f).
+        		build();
+        final PropertyAction bottomAction = PropertyAction.newPropertyAction(activityMainMobileNumberLayout).
+        		translationY(500).
+        		duration(550).
+        		alpha(0f).
+        		build();
+        
+        Player.with(toolbar).
+                animate(headerAction).
+                then().
+                animate(fabAction).
+                then().
+                animate(bottomAction).
+                play();
 ```
 
 #### Result
 
-![svg](https://github.com/geftimov/android-pathview/blob/master/art/settings.gif)
+![svg](https://github.com/geftimov/android-player/blob/master/art/sample_one.gif)
 
 #### Costumization
 
@@ -46,7 +62,7 @@ To make custom Action , just extend the BaseAction and implement the two abstrac
 
 ##### Make your animations how ever you want	
 	
-![svg](https://github.com/geftimov/android-pathview/blob/master/art/settings.gif) ![svg](https://github.com/geftimov/android-pathview/blob/master/art/settings.gif) ![svg](https://github.com/geftimov/android-pathview/blob/master/art/settings.gif)
+![svg](https://github.com/geftimov/android-player/blob/master/art/sample_two.gif) ![svg](https://github.com/geftimov/android-player/blob/master/art/sample_three.gif) ![svg](https://github.com/geftimov/android-player/blob/master/art/sample_four.gif)
 
 
 ## Licence
