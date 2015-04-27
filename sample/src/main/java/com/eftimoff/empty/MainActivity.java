@@ -6,22 +6,17 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 
-import com.eftimoff.androidplayer.actions.Actions;
+import com.eftimoff.androidplayer.Player;
 import com.eftimoff.androidplayer.actions.arc.CurveAction;
 import com.eftimoff.androidplayer.actions.property.PropertyAction;
-import com.eftimoff.androidplayer.Player;
 import com.eftimoff.androidplayer.listeners.PlayerEndListener;
 import com.eftimoff.androidplayer.listeners.PlayerStartListener;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -30,31 +25,87 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-/*        final View view = findViewById(R.id.view);
-        final View headerView = findViewById(R.id.header);
-        final View viewSecond = findViewById(R.id.viewSecond);
-        final View bottom = findViewById(R.id.bottom);
 
-        final PropertyAction propertyAction = PropertyAction.newPropertyAction(view).translationX(-200).duration(750).interpolator(new AccelerateDecelerateInterpolator()).alpha(0.4f).build();
-        final PropertyAction headerPropertyAction = PropertyAction.newPropertyAction(headerView).interpolator(new DecelerateInterpolator()).translationY(-200).duration(3750).delay(1233).alpha(0.4f).build();
-        final PropertyAction viewSecondAction = PropertyAction.newPropertyAction(viewSecond).translationY(200).duration(750).alpha(0f).build();
-        final PropertyAction bottomPropertyAction = PropertyAction.newPropertyAction(bottom).rotation(-180).scaleX(0.1f).scaleY(0.1f).translationX(-200).duration(750).build();
-        final CurveAction curveAction = CurveAction.newControlPointsCurveAction(viewSecond).translationX(100).translationY(0).controlPoint1X(100).controlPoint1Y(55.5f).controlPoint2X(0).controlPoint2Y(55.5f).duration(2500).build();
-
-        final CurveAction curve = Actions.curve(viewSecond, -100, 100);
-        curve.setDuration(2500);
-        Player.with(view).
-                setPlayerStartListener(playerStartListener).
-                setPlayerEndListener(playerEndListener).
-                animate(propertyAction).
-                animate(headerPropertyAction).
-                then().
-                animate(curve).
-                then().
-                animate(bottomPropertyAction).
-                play();*/
+        final View toolbar = findViewById(R.id.toolbar);
+        final View activityMainMessageIcon = findViewById(R.id.activityMainMessageIcon);
+        final View activityMainMobile = findViewById(R.id.activityMainMobile);
+        final View activityMainMobileNumber = findViewById(R.id.activityMainMobileNumber);
+        final View activityMainCallIcon = findViewById(R.id.activityMainCallIcon);
+        final View activityMainMobileNumberLayout = findViewById(R.id.activityMainMobileNumberLayout);
+        final View activityMainPinkFab = findViewById(R.id.activityMainPinkFab);
+        final View activityMainProfileName = findViewById(R.id.activityMainProfileName);
+        final View activityMainDrawerLayout = findViewById(R.id.activityMainDrawerLayout);
+        final View activityMainheaderLayout = findViewById(R.id.activityMainheaderLayout);
 
         initDrawerLayout();
+
+        animateSampleTwo(toolbar, activityMainMobileNumberLayout, activityMainPinkFab, activityMainheaderLayout);
+
+
+    }
+
+    private void animateSampleOne(View toolbar, View activityMainMobileNumberLayout, View activityMainPinkFab, View activityMainheaderLayout) {
+        final PropertyAction fabAction = PropertyAction.newPropertyAction(activityMainPinkFab).scaleX(0).scaleY(0).duration(750).interpolator(new AccelerateDecelerateInterpolator()).build();
+        final PropertyAction headerAction = PropertyAction.newPropertyAction(activityMainheaderLayout).interpolator(new DecelerateInterpolator()).translationY(-200).duration(550).alpha(0.4f).build();
+        final PropertyAction bottomAction = PropertyAction.newPropertyAction(activityMainMobileNumberLayout).translationY(500).duration(750).alpha(0f).build();
+        Player.with(toolbar).
+                animate(headerAction).
+                then().
+                animate(fabAction).
+                then().
+                animate(bottomAction).
+                play();
+    }
+
+    private void animateSampleTwo(View toolbar, View activityMainMobileNumberLayout, View activityMainPinkFab, View activityMainheaderLayout) {
+        final PropertyAction fabAction = PropertyAction.newPropertyAction(activityMainPinkFab).translationX(200).duration(750).interpolator(new AccelerateDecelerateInterpolator()).build();
+        final PropertyAction headerAction = PropertyAction.newPropertyAction(activityMainheaderLayout).interpolator(new DecelerateInterpolator()).duration(550).alpha(0.0f).build();
+        final PropertyAction bottomAction = PropertyAction.newPropertyAction(activityMainMobileNumberLayout).duration(2500).alpha(0f).build();
+        final CurveAction curveAction = CurveAction.newControlPointsCurveAction(activityMainMobileNumberLayout).translationX(-500).translationY(100).controlPoint1X(-500).controlPoint1Y(255.5f).controlPoint2X(0).controlPoint2Y(255.5f).duration(2500).build();
+        Player.with(activityMainheaderLayout).
+                animate(headerAction).
+                then().
+                animate(fabAction).
+                then().
+                animate(bottomAction).
+                animate(curveAction).
+                play();
+    }
+
+    private void animateSampleThree(View toolbar, View activityMainMobileNumberLayout, View activityMainPinkFab, View activityMainheaderLayout) {
+        final PropertyAction fabAction = PropertyAction.newPropertyAction(activityMainPinkFab).translationX(200).duration(750).interpolator(new AccelerateDecelerateInterpolator()).build();
+        final PropertyAction headerAction = PropertyAction.newPropertyAction(activityMainheaderLayout).interpolator(new DecelerateInterpolator()).duration(550).alpha(0.0f).build();
+        final PropertyAction bottomAction = PropertyAction.newPropertyAction(activityMainMobileNumberLayout).translationX(-200).duration(750).alpha(0f).build();
+//        final PropertyAction bottomPropertyAction = PropertyAction.newPropertyAction(bottom).rotation(-180).scaleX(0.1f).scaleY(0.1f).translationX(-200).duration(750).build();
+//        final CurveAction curveAction = CurveAction.newControlPointsCurveAction(viewSecond).translationX(100).translationY(0).controlPoint1X(100).controlPoint1Y(55.5f).controlPoint2X(0).controlPoint2Y(55.5f).duration(2500).build();
+
+//        final CurveAction curve = Actions.curve(viewSecond, -100, 100);
+//        curve.setDuration(2500);
+        Player.with(activityMainheaderLayout).
+                animate(headerAction).
+                then().
+                animate(fabAction).
+                then().
+                animate(bottomAction).
+                play();
+    }
+
+    private void animateSampleFour(View toolbar, View activityMainMobileNumberLayout, View activityMainPinkFab, View activityMainheaderLayout) {
+        final PropertyAction fabAction = PropertyAction.newPropertyAction(activityMainPinkFab).scaleX(0).scaleY(0).duration(750).interpolator(new AccelerateDecelerateInterpolator()).build();
+        final PropertyAction headerAction = PropertyAction.newPropertyAction(activityMainheaderLayout).interpolator(new DecelerateInterpolator()).translationY(-200).duration(550).alpha(0.4f).build();
+        final PropertyAction bottomAction = PropertyAction.newPropertyAction(activityMainMobileNumberLayout).translationY(500).duration(750).alpha(0f).build();
+//        final PropertyAction bottomPropertyAction = PropertyAction.newPropertyAction(bottom).rotation(-180).scaleX(0.1f).scaleY(0.1f).translationX(-200).duration(750).build();
+//        final CurveAction curveAction = CurveAction.newControlPointsCurveAction(viewSecond).translationX(100).translationY(0).controlPoint1X(100).controlPoint1Y(55.5f).controlPoint2X(0).controlPoint2Y(55.5f).duration(2500).build();
+
+//        final CurveAction curve = Actions.curve(viewSecond, -100, 100);
+//        curve.setDuration(2500);
+        Player.with(toolbar).
+                animate(headerAction).
+                then().
+                animate(fabAction).
+                then().
+                animate(bottomAction).
+                play();
     }
 
     @Override

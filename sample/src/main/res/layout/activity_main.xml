@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -36,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_alignBottom="@id/activityMainheaderLayout"
             android:layout_alignParentRight="true"
-            android:layout_marginBottom="-32dp"
+            android:layout_marginBottom="-38dp"
             app:fab_icon="@drawable/ic_fab_star"
             app:fab_colorNormal="@color/pink"
             app:fab_colorPressed="@color/pink_pressed" />
@@ -45,6 +46,7 @@
             android:id="@+id/activityMainMobileNumberLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_below="@+id/activityMainPinkFab"
             android:padding="10dp"
             android:orientation="horizontal">
@@ -90,13 +92,10 @@
         </RelativeLayout>
     </RelativeLayout>
 
-    <android.support.v7.widget.Toolbar
+  <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+        android:layout_height="56dp"
+        android:background="?attr/colorPrimary" />
 
 </android.support.v4.widget.DrawerLayout>
