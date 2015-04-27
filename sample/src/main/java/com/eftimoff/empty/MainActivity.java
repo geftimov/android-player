@@ -39,10 +39,13 @@ public class MainActivity extends ActionBarActivity {
 
         initDrawerLayout();
 
-        animateSampleTwo(toolbar, activityMainMobileNumberLayout, activityMainPinkFab, activityMainheaderLayout);
-
+//        animateSampleOne(toolbar, activityMainMobileNumberLayout, activityMainPinkFab, activityMainheaderLayout);
+//        animateSampleTwo(toolbar, activityMainMobileNumberLayout, activityMainPinkFab, activityMainheaderLayout);
+//        animateSampleThree(toolbar, activityMainMobileNumberLayout, activityMainPinkFab, activityMainheaderLayout);
+        animateSampleFour(toolbar, activityMainMessageIcon, activityMainMobile, activityMainMobileNumber, activityMainCallIcon, activityMainPinkFab, activityMainheaderLayout);
 
     }
+
 
     private void animateSampleOne(View toolbar, View activityMainMobileNumberLayout, View activityMainPinkFab, View activityMainheaderLayout) {
         final PropertyAction fabAction = PropertyAction.newPropertyAction(activityMainPinkFab).scaleX(0).scaleY(0).duration(750).interpolator(new AccelerateDecelerateInterpolator()).build();
@@ -90,23 +93,27 @@ public class MainActivity extends ActionBarActivity {
                 play();
     }
 
-    private void animateSampleFour(View toolbar, View activityMainMobileNumberLayout, View activityMainPinkFab, View activityMainheaderLayout) {
+    private void animateSampleFour(View toolbar, View activityMainMessageIcon, View activityMainMobile, View activityMainMobileNumber, View activityMainCallIcon, View activityMainPinkFab, View activityMainheaderLayout) {
         final PropertyAction fabAction = PropertyAction.newPropertyAction(activityMainPinkFab).scaleX(0).scaleY(0).duration(750).interpolator(new AccelerateDecelerateInterpolator()).build();
-        final PropertyAction headerAction = PropertyAction.newPropertyAction(activityMainheaderLayout).interpolator(new DecelerateInterpolator()).translationY(-200).duration(550).alpha(0.4f).build();
-        final PropertyAction bottomAction = PropertyAction.newPropertyAction(activityMainMobileNumberLayout).translationY(500).duration(750).alpha(0f).build();
-//        final PropertyAction bottomPropertyAction = PropertyAction.newPropertyAction(bottom).rotation(-180).scaleX(0.1f).scaleY(0.1f).translationX(-200).duration(750).build();
-//        final CurveAction curveAction = CurveAction.newControlPointsCurveAction(viewSecond).translationX(100).translationY(0).controlPoint1X(100).controlPoint1Y(55.5f).controlPoint2X(0).controlPoint2Y(55.5f).duration(2500).build();
-
-//        final CurveAction curve = Actions.curve(viewSecond, -100, 100);
-//        curve.setDuration(2500);
+        final PropertyAction headerAction = PropertyAction.newPropertyAction(activityMainheaderLayout).interpolator(new DecelerateInterpolator()).translationY(-200).duration(750).alpha(0.4f).build();
+        final PropertyAction bottomAction = PropertyAction.newPropertyAction(activityMainCallIcon).scaleX(0).scaleY(0).duration(750).alpha(0f).build();
+        final PropertyAction activityMainMobileNumberAction = PropertyAction.newPropertyAction(activityMainMobileNumber).scaleX(0).scaleY(0).duration(550).alpha(0f).build();
+        final PropertyAction activityMainMobileAction = PropertyAction.newPropertyAction(activityMainMobile).translationY(300).duration(750).alpha(0f).build();
+        final PropertyAction activityMainMessageIconAction = PropertyAction.newPropertyAction(activityMainMessageIcon).scaleX(0).scaleY(0).duration(350).alpha(0f).build();
         Player.with(toolbar).
                 animate(headerAction).
                 then().
                 animate(fabAction).
                 then().
                 animate(bottomAction).
+                then().
+                animate(activityMainMobileNumberAction).
+                animate(activityMainMobileAction).
+                then().
+                animate(activityMainMessageIconAction).
                 play();
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
