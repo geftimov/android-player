@@ -46,7 +46,7 @@ To make custom Action , just extend the BaseAction and implement the two abstrac
 
 ##### Make your animations how ever you want	
 	
-![svg](https://github.com/geftimov/android-pathview/blob/master/art/settings.gif)![svg](https://github.com/geftimov/android-pathview/blob/master/art/settings.gif)![svg](https://github.com/geftimov/android-pathview/blob/master/art/settings.gif)
+![svg](https://github.com/geftimov/android-pathview/blob/master/art/settings.gif) ![svg](https://github.com/geftimov/android-pathview/blob/master/art/settings.gif) ![svg](https://github.com/geftimov/android-pathview/blob/master/art/settings.gif)
 
 
 ## Licence
