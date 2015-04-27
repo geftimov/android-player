@@ -41,7 +41,7 @@ public class MainActivity extends ActionBarActivity {
 
 //        animateSampleOne(toolbar, activityMainMobileNumberLayout, activityMainPinkFab, activityMainheaderLayout);
 //        animateSampleTwo(toolbar, activityMainMobileNumberLayout, activityMainPinkFab, activityMainheaderLayout);
-//        animateSampleThree(toolbar, activityMainMobileNumberLayout, activityMainPinkFab, activityMainheaderLayout);
+//        animateSampleThree(toolbar, activityMainMobileNumberLayout, activityMainPinkFab, activityMainheaderLayout,activityMainMessageIcon);
         animateSampleFour(toolbar, activityMainMessageIcon, activityMainMobile, activityMainMobileNumber, activityMainCallIcon, activityMainPinkFab, activityMainheaderLayout);
 
     }
@@ -75,7 +75,7 @@ public class MainActivity extends ActionBarActivity {
                 play();
     }
 
-    private void animateSampleThree(View activityMainProfileName, View activityMainMobileNumberLayout, View activityMainPinkFab, View activityMainheaderLayout, View activityMainMessageIcon, View mainProfileName) {
+    private void animateSampleThree(View activityMainProfileName, View activityMainMobileNumberLayout, View activityMainPinkFab, View activityMainheaderLayout, View activityMainMessageIcon) {
         final PropertyAction propertyAction = PropertyAction.newPropertyAction(activityMainheaderLayout).translationX(-200).duration(1500).interpolator(new AccelerateDecelerateInterpolator()).alpha(0.4f).build();
         final PropertyAction headerPropertyAction = PropertyAction.newPropertyAction(activityMainProfileName).interpolator(new DecelerateInterpolator()).translationY(-200).duration(3750).delay(1233).alpha(0.4f).build();
         final PropertyAction viewSecondAction = PropertyAction.newPropertyAction(activityMainPinkFab).translationY(200).duration(750).alpha(0f).build();
