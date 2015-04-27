@@ -23,6 +23,16 @@ Animations when entering actvity or fragment made easy.
 
 ![svg](https://github.com/geftimov/android-pathview/blob/master/art/settings.gif)
 
+#### Costumization
+
+To make custom Action , just extend the BaseAction and implement the two abstract methods.
+
+```java
+    void init(final View view);
+
+    void animate(final View view);
+```
+
 #### Contributors
 
 [Martin Vitanov](https://github.com/martinVitanov "Martin Vitanov") <br />
@@ -33,6 +43,10 @@ Animations when entering actvity or fragment made easy.
 	dependencies {
 		compile 'com.eftimoff:android-player:1.0.0@aar'
 	}
+
+##### Make your animations how ever you want	
+	
+![svg](https://github.com/geftimov/android-pathview/blob/master/art/settings.gif)![svg](https://github.com/geftimov/android-pathview/blob/master/art/settings.gif)![svg](https://github.com/geftimov/android-pathview/blob/master/art/settings.gif)
 
 
 ## Licence
