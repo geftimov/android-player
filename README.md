@@ -8,13 +8,13 @@ Animations when entering actvity or fragment made easy.
 #### Run the player and you will can create beautiful transitions for your views.
 
 ```java
-        Player.with(toolbar).
-                animate(headerAction).
-                then().
-                animate(fabAction).
-                then().
-                animate(bottomAction).
-                play();
+Player.with(toolbar).
+	animate(headerAction).
+	then().
+	animate(fabAction).
+	then().
+	animate(bottomAction).
+	play();
 ```
 
 #### Result
