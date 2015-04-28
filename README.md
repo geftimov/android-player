@@ -1,15 +1,15 @@
 ## android-player
-Animations when entering actvity or fragment made easy.</br>
+Animations when entering Actvity or Fragment made easy.</br>
 Backward compatibility API 12.
 
 #### You have created beautiful UI , but it is boring
 
 ![svg](https://github.com/geftimov/android-player/blob/master/art/playerPhoto.png) 
 
-#### Run the player and you will can create beautiful transitions for your views.
+#### Run the player and you will can create beautiful transitions for your views when entering Activity / Fragment.
 
 ```java
-Player.with(toolbar).
+Player.init().
 	animate(headerAction).
 	then().
 	animate(fabAction).

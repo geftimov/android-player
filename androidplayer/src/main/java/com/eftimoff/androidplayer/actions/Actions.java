@@ -31,7 +31,7 @@ public class Actions {
         return PropertyAction.newPropertyAction(view).alpha(alpha).build();
     }
 
-    public static CurveAction curve(final View view, final float x, final float y) {
+    private static CurveAction curve(final View view, final float x, final float y) {
         final float base = abstand(view.getX(), view.getY(), x, y);
         final float heightOfTriangle = getHeightOfTriangle(base, 165);
         float x1 = -x;

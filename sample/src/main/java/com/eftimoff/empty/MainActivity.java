@@ -51,7 +51,7 @@ public class MainActivity extends ActionBarActivity {
         final PropertyAction fabAction = PropertyAction.newPropertyAction(activityMainPinkFab).scaleX(0).scaleY(0).duration(750).interpolator(new AccelerateDecelerateInterpolator()).build();
         final PropertyAction headerAction = PropertyAction.newPropertyAction(activityMainheaderLayout).interpolator(new DecelerateInterpolator()).translationY(-200).duration(550).alpha(0.4f).build();
         final PropertyAction bottomAction = PropertyAction.newPropertyAction(activityMainMobileNumberLayout).translationY(500).duration(750).alpha(0f).build();
-        Player.with(toolbar).
+        Player.init().
                 animate(headerAction).
                 then().
                 animate(fabAction).
@@ -65,7 +65,7 @@ public class MainActivity extends ActionBarActivity {
         final PropertyAction headerAction = PropertyAction.newPropertyAction(activityMainheaderLayout).interpolator(new DecelerateInterpolator()).duration(550).alpha(0.0f).build();
         final PropertyAction bottomAction = PropertyAction.newPropertyAction(activityMainMobileNumberLayout).duration(2500).alpha(0f).build();
         final CurveAction curveAction = CurveAction.newControlPointsCurveAction(activityMainMobileNumberLayout).translationX(-500).translationY(100).controlPoint1X(-500).controlPoint1Y(255.5f).controlPoint2X(0).controlPoint2Y(255.5f).duration(2500).build();
-        Player.with(activityMainheaderLayout).
+        Player.init().
                 animate(headerAction).
                 then().
                 animate(fabAction).
@@ -80,7 +80,7 @@ public class MainActivity extends ActionBarActivity {
         final PropertyAction headerPropertyAction = PropertyAction.newPropertyAction(activityMainProfileName).interpolator(new DecelerateInterpolator()).translationY(-200).duration(3750).delay(1233).alpha(0.4f).build();
         final PropertyAction viewSecondAction = PropertyAction.newPropertyAction(activityMainPinkFab).translationY(200).duration(750).alpha(0f).build();
         final PropertyAction bottomPropertyAction = PropertyAction.newPropertyAction(activityMainMobileNumberLayout).rotation(-180).scaleX(0.1f).scaleY(0.1f).translationX(-200).duration(750).build();
-        Player.with(activityMainMessageIcon).
+        Player.init().
                 setPlayerStartListener(playerStartListener).
                 setPlayerEndListener(playerEndListener).
                 animate(propertyAction).
@@ -99,7 +99,7 @@ public class MainActivity extends ActionBarActivity {
         final PropertyAction activityMainMobileNumberAction = PropertyAction.newPropertyAction(activityMainMobileNumber).scaleX(0).scaleY(0).duration(550).alpha(0f).build();
         final PropertyAction activityMainMobileAction = PropertyAction.newPropertyAction(activityMainMobile).translationY(300).duration(750).alpha(0f).build();
         final PropertyAction activityMainMessageIconAction = PropertyAction.newPropertyAction(activityMainMessageIcon).scaleX(0).scaleY(0).duration(350).alpha(0f).build();
-        Player.with(toolbar).
+        Player.init().
                 animate(headerAction).
                 then().
                 animate(fabAction).

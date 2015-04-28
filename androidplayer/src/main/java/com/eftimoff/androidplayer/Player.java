@@ -19,19 +19,17 @@ import java.util.List;
 public class Player {
 
     private List<List<BaseAction>> list;
-    private View view;
     private PlayerStartListener playerStartListener;
     private PlayerEndListener playerEndListener;
     final Handler handler = new Handler();
 
-    private Player(final View view) {
+    private Player() {
         list = new ArrayList<List<BaseAction>>();
         list.add(new ArrayList<BaseAction>());
-        this.view = view;
     }
 
-    public static Player with(final View view) {
-        return new Player(view);
+    public static Player init() {
+        return new Player();
     }
 
     public Player animate(final BaseAction action) {
@@ -49,15 +47,30 @@ public class Player {
     }
 
     public void play() {
-        view.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
+        final View firstView = getFirstView();
+        if (firstView == null) {
+            return;
+        }
+        firstView.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
             @Override
             public boolean onPreDraw() {
-                view.getViewTreeObserver().removeOnPreDrawListener(this);
+                firstView.getViewTreeObserver().removeOnPreDrawListener(this);
                 initAll();
                 animateAll();
                 return true;
             }
         });
+    }
+
+    private View getFirstView() {
+        final List<BaseAction> baseActions = list.get(0);
+        if (baseActions != null) {
+            final BaseAction baseAction = baseActions.get(0);
+            if (baseAction != null) {
+                return baseAction.getView();
+            }
+        }
+        return null;
     }
 
     private void initAll() {
