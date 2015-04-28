@@ -1,5 +1,6 @@
 ## android-player
 Animations when entering actvity or fragment made easy.
+Backward compatibility API 12.
 
 #### You have created beautiful UI , but it is boring
 
