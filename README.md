@@ -6,7 +6,7 @@ Backward compatibility API 12.
 
 ![svg](https://github.com/geftimov/android-player/blob/master/art/playerPhoto.png) 
 
-#### Run the player and you will can create beautiful transitions for your views when entering Activity / Fragment.
+#### Run the player and you will can create beautiful transitions for your views when entering Activity / Fragment.</br>Put in your onCreate() for Activity or onViewCreated() for Fragment.
 
 ```java
 Player.init().
