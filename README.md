@@ -30,17 +30,17 @@ Player.with(toolbar).
 			duration(750).
 			interpolator(new AccelerateDecelerateInterpolator()).
 			build();
-        final PropertyAction headerAction = PropertyAction.newPropertyAction(activityMainheaderLayout).
-        		interpolator(new DecelerateInterpolator()).
-        		translationY(-200).
-        		duration(550).
-        		alpha(0.4f).
-        		build();
-        final PropertyAction bottomAction = PropertyAction.newPropertyAction(activityMainMobileNumberLayout).
-        		translationY(500).
-        		duration(550).
-        		alpha(0f).
-        		build();
+	final PropertyAction headerAction = PropertyAction.newPropertyAction(activityMainheaderLayout).
+			interpolator(new DecelerateInterpolator()).
+			translationY(-200).
+			duration(550).
+			alpha(0.4f).
+			build();
+	final PropertyAction bottomAction = PropertyAction.newPropertyAction(activityMainMobileNumberLayout).
+			translationY(500).
+			duration(550).
+			alpha(0f).
+			build();
 ```
 
 #### Costumization
