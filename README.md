@@ -8,6 +8,22 @@ Animations when entering actvity or fragment made easy.
 #### Run the player and you will can create beautiful transitions for your views.
 
 ```java
+        Player.with(toolbar).
+                animate(headerAction).
+                then().
+                animate(fabAction).
+                then().
+                animate(bottomAction).
+                play();
+```
+
+#### Result
+
+![svg](https://github.com/geftimov/android-player/blob/master/art/sample_one.gif)
+
+#### Actions
+
+```java
 	final PropertyAction fabAction = PropertyAction.newPropertyAction(activityMainPinkFab).
 			scaleX(0).
 			scaleY(0).
@@ -25,19 +41,7 @@ Animations when entering actvity or fragment made easy.
         		duration(550).
         		alpha(0f).
         		build();
-        
-        Player.with(toolbar).
-                animate(headerAction).
-                then().
-                animate(fabAction).
-                then().
-                animate(bottomAction).
-                play();
 ```
-
-#### Result
-
-![svg](https://github.com/geftimov/android-player/blob/master/art/sample_one.gif)
 
 #### Costumization
 
