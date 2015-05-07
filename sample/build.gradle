@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.eftimoff.empty"
-        minSdkVersion 14
+        minSdkVersion 7
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
@@ -14,7 +14,6 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:22.0.0'
-    compile 'com.getbase:floatingactionbutton:1.9.0'
+    compile 'com.android.support:appcompat-v7:22.1.1'
     compile project(':androidplayer')
 }

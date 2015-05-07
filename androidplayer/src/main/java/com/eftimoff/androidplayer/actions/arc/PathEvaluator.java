@@ -1,6 +1,7 @@
 package com.eftimoff.androidplayer.actions.arc;
 
-import android.animation.TypeEvaluator;
+
+import com.nineoldandroids.animation.TypeEvaluator;
 
 /**
  * This evaluator interpolates between two PathPoint values given the value t, the

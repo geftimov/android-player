@@ -1,10 +1,12 @@
 package com.eftimoff.androidplayer.actions.property;
 
-import android.animation.TimeInterpolator;
 import android.view.View;
-import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.Interpolator;
+import android.view.animation.LinearInterpolator;
 
 import com.eftimoff.androidplayer.actions.BaseAction;
+import com.nineoldandroids.view.ViewHelper;
+import com.nineoldandroids.view.ViewPropertyAnimator;
 
 /**
  * Action that animates the properties of the view.
@@ -29,24 +31,25 @@ public class PropertyAction extends BaseAction {
 
     @Override
     public void init(View view) {
-        setToTranslationX(view.getTranslationX());
-        view.setTranslationX(getTranslationX());
-        setToTranslationY(view.getTranslationY());
-        view.setTranslationY(getTranslationY());
-        setToScaleX(view.getScaleX());
-        view.setScaleX(getScaleX());
-        setToScaleY(view.getScaleY());
-        view.setScaleY(getScaleY());
-        setToAlpha(view.getAlpha());
-        view.setAlpha(getAlpha());
-        setToRotation(view.getRotation());
-        view.setRotation(getRotation());
+        setToTranslationX(ViewHelper.getTranslationX(view));
+        ViewHelper.setTranslationX(view, getTranslationX());
+        setToTranslationY(ViewHelper.getTranslationY(view));
+        ViewHelper.setTranslationY(view, getTranslationY());
+        setToScaleX(ViewHelper.getScaleX(view));
+        ViewHelper.setScaleX(view, getScaleX());
+        setToScaleY(ViewHelper.getScaleY(view));
+        ViewHelper.setScaleY(view, getScaleY());
+        setToAlpha(ViewHelper.getAlpha(view));
+        ViewHelper.setAlpha(view, getAlpha());
+        setToRotation(ViewHelper.getRotation(view));
+        ViewHelper.setRotation(view, getRotation());
     }
 
     @Override
     public void animate(View view) {
-        view.animate().
-                translationX(toTranslationX).
+        ViewPropertyAnimator
+                .animate(view)
+                .translationX(toTranslationX).
                 translationY(toTranslationY).
                 scaleY(toScaleY).
                 scaleX(toScaleX).
@@ -161,7 +164,7 @@ public class PropertyAction extends BaseAction {
         private boolean animateAlone;
         private int duration = 300;
         private int delay = 0;
-        private TimeInterpolator interpolator = new AccelerateDecelerateInterpolator();
+        private Interpolator interpolator = new LinearInterpolator();
         private float fromTranslationX = 0;
         private float toTranslationX = 0;
         private float fromTranslationY = 0;
@@ -218,7 +221,7 @@ public class PropertyAction extends BaseAction {
             return this;
         }
 
-        public Builder interpolator(TimeInterpolator interpolator) {
+        public Builder interpolator(Interpolator interpolator) {
             this.interpolator = interpolator;
             return this;
         }

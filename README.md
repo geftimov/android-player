@@ -1,6 +1,6 @@
 ## android-player
 Animations when entering Actvity or Fragment made easy.</br>
-Backward compatibility API 12.
+Backward compatibility API 1.
 
 #### You have created beautiful UI , but it is boring
 
@@ -62,7 +62,7 @@ To make custom Action , just extend the BaseAction and implement the two abstrac
 ##### Download
 
 	dependencies {
-		compile 'com.eftimoff:androidplayer:1.0.0@aar'
+		compile 'com.eftimoff:androidplayer:1.0.1@aar'
 	}
 
 ##### Make your animations how ever you want	

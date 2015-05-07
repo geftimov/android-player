@@ -1,12 +1,13 @@
 package com.eftimoff.androidplayer.actions.arc;
 
-import android.animation.ObjectAnimator;
-import android.animation.TimeInterpolator;
+
 import android.view.View;
-import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.AccelerateInterpolator;
+import android.view.animation.Interpolator;
+import android.view.animation.LinearInterpolator;
 
 import com.eftimoff.androidplayer.actions.BaseAction;
+import com.nineoldandroids.animation.ObjectAnimator;
+import com.nineoldandroids.view.ViewHelper;
 
 /**
  * Action that translate with curve
@@ -53,8 +54,8 @@ public class CurveAction extends BaseAction {
 
     @Override
     public void init(View view) {
-        view.setTranslationX(translationX);
-        view.setTranslationY(translationY);
+        ViewHelper.setTranslationX(view, translationX);
+        ViewHelper.setTranslationY(view, translationY);
         path = new AnimatorPath();
         path.moveTo(translationX, translationY);
         path.curveTo(controlPoint1X, controlPoint1Y, controlPoint2X, controlPoint2Y, 0, 0);
@@ -79,8 +80,8 @@ public class CurveAction extends BaseAction {
      * property string.
      */
     public void setPathPointLocation(final PathPoint newLoc) {
-        getView().setTranslationX(newLoc.mX);
-        getView().setTranslationY(newLoc.mY);
+        ViewHelper.setTranslationX(getView(), newLoc.mX);
+        ViewHelper.setTranslationY(getView(), newLoc.mY);
     }
 
 
@@ -89,7 +90,7 @@ public class CurveAction extends BaseAction {
         private boolean animateAlone;
         private int duration = 300;
         private int delay = 0;
-        private TimeInterpolator interpolator = new AccelerateDecelerateInterpolator();
+        private Interpolator interpolator = new LinearInterpolator();
         private float translationX;
         private float translationY;
         private float controlPoint1X;
@@ -105,7 +106,7 @@ public class CurveAction extends BaseAction {
             return new CurveAction(this);
         }
 
-        public Builder interpolator(TimeInterpolator interpolator) {
+        public Builder interpolator(Interpolator interpolator) {
             this.interpolator = interpolator;
             return this;
         }

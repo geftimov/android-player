@@ -3,6 +3,8 @@ package com.eftimoff.androidplayer.actions;
 import android.animation.TimeInterpolator;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.Interpolator;
+import android.view.animation.LinearInterpolator;
 
 /**
  * Base Action with some mandatory fields.
@@ -15,7 +17,7 @@ public abstract class BaseAction implements Action {
     private int duration = 300;
     private int delay = 0;
     private boolean animateAlone;
-    private TimeInterpolator interpolator = new AccelerateDecelerateInterpolator();
+    private Interpolator interpolator = new LinearInterpolator();
 
     public BaseAction(final View view) {
         this.view = view;
@@ -49,11 +51,11 @@ public abstract class BaseAction implements Action {
         this.animateAlone = animateAlone;
     }
 
-    public TimeInterpolator getInterpolator() {
+    public Interpolator getInterpolator() {
         return interpolator;
     }
 
-    public void setInterpolator(TimeInterpolator interpolator) {
+    public void setInterpolator(Interpolator interpolator) {
         this.interpolator = interpolator;
     }
 }

@@ -31,16 +31,14 @@
                 android:textSize="30sp" />
         </RelativeLayout>
 
-        <com.getbase.floatingactionbutton.FloatingActionButton
+        <View
             android:id="@+id/activityMainPinkFab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             android:layout_alignBottom="@id/activityMainheaderLayout"
             android:layout_alignParentRight="true"
             android:layout_marginBottom="-38dp"
-            app:fab_icon="@drawable/ic_fab_star"
-            app:fab_colorNormal="@color/pink"
-            app:fab_colorPressed="@color/pink_pressed" />
+            android:background="@android:color/black"/>
 
         <RelativeLayout
             android:id="@+id/activityMainMobileNumberLayout"
