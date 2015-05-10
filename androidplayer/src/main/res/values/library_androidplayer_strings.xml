@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+	<string name="define_androidplayer">year;owner</string>
+	<!-- Author section -->
+	<string name="library_androidplayer_author">Georgi Eftimov</string>
+	<string name="library_androidplayer_authorWebsite">http://eftimoff.com</string>
+	<!-- Library section -->
+	<string name="library_androidplayer_libraryName">AndroidPlayer</string>
+	<string name="library_androidplayer_libraryDescription">https://github.com/geftimov/android-player</string>
+	<string name="library_androidplayer_libraryWebsite">https://github.com/geftimov/android-player</string>
+	<string name="library_androidplayer_libraryVersion">1.0.1</string>
+	<!-- OpenSource section -->
+	<string name="library_androidplayer_isOpenSource">true</string>
+	<string name="library_androidplayer_repositoryLink">https://github.com/geftimov/android-player</string>
+	<!-- ClassPath for autoDetect section -->
+	<string name="library_androidplayer_classPath">com.eftimoff.androidplayer</string>
+	<!-- License section -->
+	<string name="library_androidplayer_licenseId">apache_2_0</string>
+	<!-- Custom variables section -->
+</resources>
