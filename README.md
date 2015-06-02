@@ -62,6 +62,10 @@ To make custom Action , just extend the BaseAction and implement the two abstrac
 [Martin Vitanov](https://github.com/martinVitanov "Martin Vitanov") <br />
 [Georgi Eftimov](https://github.com/geftimov "Georgi Eftimov")
 
+#### CHANGELOG
+
+- June 6th. Add animation loop support.
+
 ##### Download
 
 	dependencies {

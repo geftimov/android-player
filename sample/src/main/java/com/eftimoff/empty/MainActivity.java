@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 //        animateSampleTwo(toolbar, activityMainMobileNumberLayout, activityMainPinkFab, activityMainheaderLayout);
 //        animateSampleThree(toolbar, activityMainMobileNumberLayout, activityMainPinkFab, activityMainheaderLayout, activityMainMessageIcon);
 //        animateSampleFour(toolbar, activityMainMessageIcon, activityMainMobile, activityMainMobileNumber, activityMainCallIcon, activityMainPinkFab, activityMainheaderLayout);
-
+        //animateSampleFive(activityMainProfileName);
     }
 
 
@@ -113,6 +113,17 @@ public class MainActivity extends AppCompatActivity {
                 play();
     }
 
+    private void animateSampleFive(View activityMainMessageIcon) {
+        final PropertyAction headerAction1 = PropertyAction.newPropertyAction(activityMainMessageIcon).scaleX(0.5f).scaleY(0.5f).duration(500).build();
+        final PropertyAction headerAction2 = PropertyAction.newPropertyAction(activityMainMessageIcon).scaleX(2).scaleY(2).duration(500).build();
+
+        Player.init().
+                animate(headerAction1).
+                then().
+                animate(headerAction2).
+                loop(5).
+                play();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
