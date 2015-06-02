@@ -21,6 +21,8 @@ public class Player {
     private List<List<BaseAction>> list;
     private PlayerStartListener playerStartListener;
     private PlayerEndListener playerEndListener;
+    private int loopTime = -1;
+
     final Handler handler = new Handler();
 
     private Player() {
@@ -43,6 +45,15 @@ public class Player {
 
     public Player then() {
         list.add(new ArrayList<BaseAction>());
+        return this;
+    }
+
+    /**
+     * Loop animation
+     * @param loopTime 0 if infinity loop
+     */
+    public Player loop(int loopTime) {
+        this.loopTime = loopTime;
         return this;
     }
 
@@ -103,6 +114,12 @@ public class Player {
             public void run() {
                 if (playerEndListener != null) {
                     playerEndListener.onEnd();
+                }
+                if (loopTime > 0) {
+                    --loopTime;
+                }
+                if (loopTime != 0) {
+                    animateAll();
                 }
             }
         }, durationCounter);
