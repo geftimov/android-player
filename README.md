@@ -69,7 +69,7 @@ To make custom Action , just extend the BaseAction and implement the two abstrac
 ##### Download
 
 	dependencies {
-		compile 'com.eftimoff:androidplayer:1.0.2@aar'
+		compile 'com.eftimoff:androidplayer:1.0.3@aar'
 	}
 
 ##### Make your animations how ever you want	
