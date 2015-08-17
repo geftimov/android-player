@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 21
+    compileSdkVersion 22
     buildToolsVersion "21.1.2"
 
     defaultConfig {
@@ -14,6 +14,7 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:22.1.1'
-    compile project(':androidplayer')
+    compile 'com.android.support:appcompat-v7:22.2.1'
+    compile 'com.eftimoff:androidplayer:1.0.3@aar'
+    compile 'com.nineoldandroids:library:2.4.0'
 }
