@@ -67,12 +67,12 @@ To make custom Action , just extend the BaseAction and implement the two abstrac
 - June 6th. Add animation loop support.
 
 ##### Download
-
-	dependencies {
-		compile 'com.eftimoff:androidplayer:1.0.3@aar'
-		compile 'com.nineoldandroids:library:2.4.0'
-	}
-
+```groovy
+dependencies {
+	compile 'com.eftimoff:androidplayer:1.0.3@aar'
+	compile 'com.nineoldandroids:library:2.4.0'
+}
+```
 ##### Make your animations how ever you want	
 	
 ![svg](https://github.com/geftimov/android-player/blob/master/art/sample_two.gif) ![svg](https://github.com/geftimov/android-player/blob/master/art/sample_three.gif) ![svg](https://github.com/geftimov/android-player/blob/master/art/sample_four.gif)
@@ -80,7 +80,7 @@ To make custom Action , just extend the BaseAction and implement the two abstrac
 
 ## Licence
 
-    Copyright 2015 Georgi Eftimov
+    Copyright 2016 Georgi Eftimov
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
