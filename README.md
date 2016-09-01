@@ -1,6 +1,6 @@
 ## android-player
 
-[![Join the chat at https://gitter.im/geftimov/android-player](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/geftimov/android-player?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-android--player-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/1760) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.eftimoff/android-player/badge.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/com.eftimoff/android-player)
+[![Join the chat at https://gitter.im/geftimov/android-player](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/geftimov/android-player?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-android--player-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/1760) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.eftimoff/androidplayer/badge.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/com.eftimoff/androidplayer)
 
 Animations when entering Actvity or Fragment made easy.</br>
 Backward compatibility API 1.
