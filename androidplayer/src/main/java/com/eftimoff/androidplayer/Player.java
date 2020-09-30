@@ -21,7 +21,7 @@ public class Player {
     private List<List<BaseAction>> list;
     private PlayerStartListener playerStartListener;
     private PlayerEndListener playerEndListener;
-    private int loopTime = -1;
+    private short loopTime = -1;
 
     final Handler handler = new Handler();
 
@@ -52,7 +52,7 @@ public class Player {
      * Loop animation
      * @param loopTime 0 if infinity loop
      */
-    public Player loop(int loopTime) {
+    public Player loop(short loopTime) {
         this.loopTime = loopTime;
         return this;
     }
@@ -97,10 +97,10 @@ public class Player {
         if (playerStartListener != null) {
             playerStartListener.onStart();
         }
-        int durationCounter = 0;
-        for (int i = 0; i < list.size(); i++) {
+        short durationCounter = 0;
+        for (short i = 0; i < list.size(); i++) {
             final List<BaseAction> baseActions = list.get(i);
-            final int longestDuration = getLongestDuration(baseActions);
+            final short longestDuration = getLongestDuration(baseActions);
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -125,8 +125,8 @@ public class Player {
         }, durationCounter);
     }
 
-    private int getLongestDuration(final List<BaseAction> actions) {
-        int maxDuration = 0;
+    private short getLongestDuration(final List<BaseAction> actions) {
+        short maxDuration = 0;
         for (final BaseAction action : actions) {
             if (!action.isAnimateAlone() && action.getDuration() > maxDuration) {
                 maxDuration = action.getDuration() + action.getDelay();
