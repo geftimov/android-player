@@ -9,7 +9,7 @@ Backward compatibility API 1.
 
 ![svg](https://github.com/geftimov/android-player/blob/master/art/playerPhoto.png) 
 
-###### Run the player and you will can create beautiful transitions </br>for your views when entering Activity / Fragment.</br>Put in your onCreate() for Activity or onViewCreated() for Fragment.
+###### Run the player, and you will be able to create beautiful transitions </br>for your views when entering Activity / Fragment.</br>Put in your onCreate() for Activity or onViewCreated() for Fragment.
 
 ```java
 Player.init().
@@ -49,7 +49,7 @@ Player.init().
 
 #### Costumization
 
-To make custom Action , just extend the BaseAction and implement the two abstract methods.
+To make custom action, extend the BaseAction, and implement the two abstract methods.
 
 ```java
     void init(final View view);
@@ -73,7 +73,7 @@ dependencies {
 	compile 'com.nineoldandroids:library:2.4.0'
 }
 ```
-##### Make your animations how ever you want	
+##### Make your animations however you want	
 	
 ![svg](https://github.com/geftimov/android-player/blob/master/art/sample_two.gif) ![svg](https://github.com/geftimov/android-player/blob/master/art/sample_three.gif) ![svg](https://github.com/geftimov/android-player/blob/master/art/sample_four.gif)
 
